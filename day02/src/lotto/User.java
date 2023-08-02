@@ -1,17 +1,17 @@
 package lotto;
 
 public class User {
-	public int[] myNums = new int[5];
+	public int[] nums = new int[5];
 	public int id;
 	public int rank;
 	
 	public User(int id, int[] nums) {
 		this.id = id;
-		this.myNums = nums;
+		this.nums = nums;
 	}
 	
 	public int[] getMyNums() {
-		return this.myNums;
+		return this.nums;
 	}
 	public void setRank(int rank) {
 		this.rank = rank;

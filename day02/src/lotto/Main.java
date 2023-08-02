@@ -16,8 +16,7 @@ public class Main {
 		System.out.println();
 		
 		showMenu();
-		
-
+		br.close();
 	}
 	
 	static void showMenu() throws Exception {
@@ -35,9 +34,9 @@ public class Main {
 					System.out.println("아쉽게도 낙첨되었습니다.");
 				}
 			} else if (cmd == 2) {
-				System.out.printf("1등 당첨 총 %d명\n", ls.reward.getWinningCount()[0]);
-				System.out.printf("2등 당첨 총 %d명\n", ls.reward.getWinningCount()[1]);
-				System.out.printf("3등 당첨 총 %d명\n", ls.reward.getWinningCount()[2]);
+				System.out.printf("1등 당첨 총 %d명\t 1등 상금: 인당 %d원\n", ls.reward.getWinningCount()[0], ls.reward.getWinningReward()[0]);
+				System.out.printf("2등 당첨 총 %d명\t 2등 상금: 인당 %d원\n", ls.reward.getWinningCount()[1], ls.reward.getWinningReward()[1]);
+				System.out.printf("3등 당첨 총 %d명\t 3등 상금: 인당 %d원\n", ls.reward.getWinningCount()[2], ls.reward.getWinningReward()[2]);
 				
 			} else if (cmd == 3) {
 				System.out.println("감사합니다, 또 이용해주세요.");
@@ -60,7 +59,7 @@ public class Main {
 	}
 	static void showMyResult(int rank) {
 		System.out.printf("%d등 당첨 축하합니다!\n", rank);
-		System.out.printf("총 상금: %d원\n", ls.reward.getWinningReward()[0]);
+		System.out.printf("총 상금: %d원\n", ls.reward.getWinningReward()[rank]);
 	}
 
 }

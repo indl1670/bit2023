@@ -4,9 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class LottoShop {
+	private static final int userCount = 100; // 총 사용자 수
 	public int[] winningNums = new int[5]; // 당첨번호
-	public final int userCount = 100; // 총 사용자 수
-	
 	
 	User[] users = new User[userCount];
 	Reward reward = new Reward(userCount);
@@ -65,12 +64,20 @@ public class LottoShop {
 		}
 		
 		for(int i = 0; i < 5; i++) {
+			if (myNums[i] > 40) {
+				System.out.println("40 이상의 숫자는 입력할 수 없습니다.");
+				System.out.println("로또 번호(1 ~ 40) 5자리를 중복되지 않게 입력해주세요.(띄어쓰기 구분)");
+				return buyLotto();
+			}
+		}
+		
+		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
 				if (i == j) continue;
-				if (myNums[i] == myNums[j]) {
+				if (myNums[i] == myNums[j]) { // 중복 숫자 입력 시 재입력 요청
 					System.out.println("중복숫자 없이 입력해주세요.");
 					System.out.println("로또 번호(1 ~ 40) 5자리를 중복되지 않게 입력해주세요.(띄어쓰기 구분)");
-					return buyLotto(); // 중복 숫자 입력 시 재입력 요청
+					return buyLotto();
 				}
 			}
 		}

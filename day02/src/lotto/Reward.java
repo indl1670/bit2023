@@ -1,10 +1,10 @@
 package lotto;
 
 public class Reward {
+	private static final int third = 25000;
 	public long totalReward; // 총 상금
 	public int[] winningCount = new int[3]; // 등수별 인원
 	public int[] winningReward = new int[3]; // 등수별 상금
-	public final int third = 25000;
 	
 	public Reward(int userCount) {
 		totalReward = 5000 * userCount; // 총 상금 책정
@@ -12,13 +12,7 @@ public class Reward {
 	
 	// 등수 인원 세팅
 	public void setWinningCount(int rank) {
-		if (rank == 1) {
-			winningCount[0]++;
-		} else if (rank == 2) {
-			winningCount[1]++;
-		} else if (rank == 3) {
-			winningCount[2]++;
-		}
+		winningCount[rank-1]++;
 	}
 	public int[] getWinningCount() {
 		return winningCount;
