@@ -23,6 +23,10 @@ public class TourPlan {
 		this.plans = plans;
 	}
 
+	@Override
+	public String toString() {
+		return "TourPlan\n" + title + "\n" + nights + "\n" + days + "\n" + startDate + "\n" + whereToStay + "\n" + plans + "\n";
+	}
 	public void addPlan(int day, String plan) {
 		plans.add(new DetailPlan(day, plan));
 	}
