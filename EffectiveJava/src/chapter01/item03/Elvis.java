@@ -1,6 +1,8 @@
 package chapter01.item03;
 
-public class Elvis implements IElvis {
+import java.io.Serializable;
+
+public class Elvis implements IElvis, Serializable {
 
 	/**
 	 * Singleton Object
@@ -8,13 +10,15 @@ public class Elvis implements IElvis {
 	public static final Elvis INSTANCE = new Elvis();
 	private static boolean created;
 	
-	private Elvis() {
-		if (created) {
-			throw new UnsupportedOperationException("can't be created by constructor");
-		}
-		
-		created = true;
-	}
+	private Elvis() {}
+	
+//	private Elvis() {
+//		if (created) {
+//			throw new UnsupportedOperationException("can't be created by constructor");
+//		}
+//		
+//		created = true;
+//	}
 
 	@Override
 	public void leaveTheBuilding() {
@@ -31,6 +35,10 @@ public class Elvis implements IElvis {
 		Elvis elvis = Elvis.INSTANCE;
 		elvis.leaveTheBuilding();
 
+	}
+	
+	private Object readResolve() {
+		return INSTANCE;
 	}
 
 }
