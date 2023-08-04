@@ -6,8 +6,15 @@ public class Elvis implements IElvis {
 	 * Singleton Object
 	 */
 	public static final Elvis INSTANCE = new Elvis();
+	private static boolean created;
 	
-	private Elvis() {}
+	private Elvis() {
+		if (created) {
+			throw new UnsupportedOperationException("can't be created by constructor");
+		}
+		
+		created = true;
+	}
 
 	@Override
 	public void leaveTheBuilding() {
