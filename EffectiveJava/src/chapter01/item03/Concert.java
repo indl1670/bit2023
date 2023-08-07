@@ -1,27 +1,17 @@
 package chapter01.item03;
 
+import java.util.function.Supplier;
+
 public class Concert {
 
-	private boolean lightsOn;
-	private boolean mainStageOpen;
-	
-	private IElvis elvis;
-	
-	public Concert(IElvis elvis) {
-		this.elvis = elvis;
+	public void start(Supplier<Singer> singerSupplier) {
+		Singer singer = singerSupplier.get();
+		singer.sing();
 	}
 	
-	public void perform() {
-		mainStageOpen = true;
-		lightsOn = true;
-		elvis.sing();
-	}
-	
-	public boolean isLightsOn() {
-		return lightsOn;
-	}
-	
-	public boolean isMainStageOpen() {
-		return mainStageOpen;
+	public static void main(String[] args) {
+		Concert concert = new Concert();
+		// Supplier에 준하는 익명 Instance
+		concert.start(() -> Elvis.getInstance());
 	}
 }
