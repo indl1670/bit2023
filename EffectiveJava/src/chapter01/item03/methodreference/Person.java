@@ -14,6 +14,8 @@ public class Person {
 		return this.birthday.compareTo(b.birthday);
 	}
 	
+	public Person() { }
+	
 	public Person(LocalDate birthday) {
 		this.birthday = birthday;
 	}
