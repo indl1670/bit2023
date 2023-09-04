@@ -17,11 +17,11 @@ public class SpellChecker2 {
 		this.dictionary = dictionarySupplier.get();
 	}
 	
-	public static boolean isValid(String word) {
+	public boolean isValid(String word) {
 		return dictionary.contains(word);
 	}
 	
-	public static List<String> suggestions(String typo) {
+	public List<String> suggestions(String typo) {
 		return dictionary.closeWordsTo(typo);
 	}
 }
